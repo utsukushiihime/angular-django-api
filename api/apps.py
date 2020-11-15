@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class DemoConfig(AppConfig):
-    name = 'app'
+    name = 'api'
