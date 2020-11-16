@@ -4,6 +4,9 @@ class BookNumber(models.Model):
     isbn_10 = models.CharField(max_length=10, blank=True)
     isbn_13 = models.CharField(max_length=13, blank=True)
 
+    def __str__(self):
+        return f"ISBN10: {self.isbn_10} || ISBN13: {self.isbn_13}"
+
 
 class Book(models.Model):
     title = models.CharField(max_length=36, blank=False, unique=True)
@@ -16,4 +19,11 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
+
+class Character(models.Model):
+    name = models.CharField(max_length=30)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name='characters')
+
+    def __str__(self):
+        return self.name
 
