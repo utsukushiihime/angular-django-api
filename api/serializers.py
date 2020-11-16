@@ -16,6 +16,10 @@ class AuthorSerializer(serializers.ModelSerializer):
         model = Author
         fields = ['id', 'name', 'surname']
 
+class BookMiniSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Book
+        fields = ['id', 'title']
 
 class BookSerializer(serializers.ModelSerializer):
     number = BookNumberSerializer(many=False)
